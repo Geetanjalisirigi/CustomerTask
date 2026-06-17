@@ -35,7 +35,23 @@ public class CustomerService {
                 .orElseThrow(() ->
                         new RuntimeException("Customer not found"));
     }
+    public List<CustomerResponseDTO> getAllCustomers()
+        throws Exception {
 
+    List<CustomerProfile> profiles =
+            repository.findAll();
+
+    return profiles.stream()
+            .map(profile -> {
+                try {
+                    return getCustomerDetails(
+                            profile.getCustomerId());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            })
+            .toList();
+}
     public CustomerResponseDTO getCustomerDetails(String customerId)
             throws Exception {
 

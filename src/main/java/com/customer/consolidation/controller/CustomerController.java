@@ -58,6 +58,11 @@ public CustomerResponseDTO getCustomerDetails(
 
     return service.getCustomerDetails(customerId);
 }
+@GetMapping("/all")
+public Object getAllCustomers() throws Exception {
+
+    return service.getAllCustomers();
+}
 @GetMapping("/{customerId}/summary")
 public Map<String, String> getSummary(
         @PathVariable String customerId)

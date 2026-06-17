@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-card: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1e40af;
+  --color-accent: #8b5cf6;
+  --color-gold: #f59e0b;
+  --color-text-muted: #64748b;
+}
+
+* {
+  @apply transition-colors;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+html {
+  @apply scroll-smooth;
+}
